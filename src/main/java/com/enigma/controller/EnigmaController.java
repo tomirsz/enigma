@@ -16,13 +16,9 @@ public class EnigmaController {
 
     private final CipherService cipherService;
 
-    @PostMapping("/process")
+    @PostMapping(value = "/process")
     public ResponseEntity<?> process(@Valid @RequestBody RequestDto request) {
-        try {
             return cipherService.encrypt(request);
-        } catch (Exception e) {
-            return  ResponseEntity.badRequest().build();
-        }
     }
 
 }
